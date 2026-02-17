@@ -1,0 +1,80 @@
+# Configuration for Multi-Agent Document Analysis System
+
+# MCP Server Configuration
+mcp_server:
+  host: "0.0.0.0"
+  port: 8000
+  url: "http://127.0.0.1:8000"
+  timeout: 10 # seconds
+  health_check_interval: 30 # seconds
+
+# LLM Configuration
+llm:
+  provider: "mock" # Options: mock, openai, anthropic, claude
+  model: "gpt-4-1106-preview"
+  temperature: 0.2
+  max_tokens: 1024
+  timeout: 30 # seconds
+
+# Agent Configuration
+manager_agent:
+  name: "Manager Agent"
+  role: "Orchestrator"
+  description: "High-level orchestration, intent analysis, tool decision-making"
+
+specialist_agent:
+  name: "Specialist Agent"
+  role: "Synthesizer"
+  description: "Technical analyst specializing in grounded synthesis and citation"
+  system_prompt: |
+    You are a meticulous technical analyst. Your job is to synthesize a clear, 
+    concise answer based ONLY on the provided context and the user's question. 
+    If the information is not in the context, state that you don't know. 
+    Always cite your sources using [Filename] notation.
+
+# Knowledge Base Configuration
+knowledge_base:
+  directory: "./data"
+  supported_formats:
+    - ".md"
+    - ".txt"
+  max_snippets: 5
+  search_algorithm: "keyword-based" # Options: keyword-based, semantic (with vector store)
+
+# Logging Configuration
+logging:
+  level: "INFO" # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "orchestration.log"
+  file_max_bytes: 10485760 # 10 MB
+  backup_count: 5
+  console_output: true
+
+# Monitoring & Metrics
+monitoring:
+  track_latency: true
+  track_tool_calls: true
+  track_context_retrieval: true
+  log_final_prompt: true
+  log_prompts_to_file: true
+  prompt_log_file: "prompts.log"
+
+# State Management
+state_management:
+  pass_full_history: true
+  context_summarization: false
+  max_history_tokens: 2000
+
+# Protocol Configuration
+protocol:
+  mcp_version: "v1"
+  mcp_standard_endpoints:
+    - "/mcp/v1/tools"
+    - "/mcp/v1/invoke"
+  authentication: false # Future: implement authentication
+
+# Docker & Deployment
+deployment:
+  containerized: true
+  docker_port: 8000
+  startup_mode: "concurrent" # concurrent or sequential
