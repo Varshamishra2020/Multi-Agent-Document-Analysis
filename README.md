@@ -4,7 +4,7 @@ A production-ready Python implementation of a Multi-Agent Document Analysis Syst
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Assignment Overview](#assignment-overview)
 2. [Project Architecture](#project-architecture)
@@ -24,20 +24,20 @@ A production-ready Python implementation of a Multi-Agent Document Analysis Syst
 
 ---
 
-## 🎯 Assignment Overview
+##  Assignment Overview
 
 ### Scenario
 Build a modular multi-agent system where a central orchestrator (Manager Agent) can access specialized data services via MCP and delegate final synthesis to a specialist agent (Specialist Agent).
 
 ### Deliverables Provided
-✅ MCP Tool Server (Knowledge Retriever) - FastAPI-based web service
-✅ A2A Orchestration (Manager + Specialist Agents) - Terminal-based Python script
-✅ Knowledge Base - 4 technical documents in `data/` directory
-✅ Comprehensive README - This document covering all aspects
-✅ Python project with complete source code
-✅ requirements.txt with all dependencies
-✅ Configuration management (`.env`, `config.yaml`)
-✅ Docker containerization support
+MCP Tool Server (Knowledge Retriever) - FastAPI-based web service
+A2A Orchestration (Manager + Specialist Agents) - Terminal-based Python script
+Knowledge Base - 4 technical documents in `data/` directory
+Comprehensive README - This document covering all aspects
+Python project with complete source code
+requirements.txt with all dependencies
+Configuration management (`.env`, `config.yaml`)
+Docker containerization support
 
 ---
 
@@ -99,24 +99,24 @@ Build a modular multi-agent system where a central orchestrator (Manager Agent) 
 
 ---
 
-## ✅ Technical Requirements Met
+## Technical Requirements Met
 
-### Component 1: MCP Tool Server ✅
+### Component 1: MCP Tool Server 
 
 **File**: `scripts/mcp_server.py` (162 lines)
 
-- ✅ **Framework**: FastAPI
-- ✅ **Tool Name**: `document_retriever`
-- ✅ **Function**: Accepts query string, returns relevant text snippets
-- ✅ **Implementation**: Keyword-based search with relevance scoring
-- ✅ **MCP Endpoints**:
+-  **Framework**: FastAPI
+-  **Tool Name**: `document_retriever`
+-  **Function**: Accepts query string, returns relevant text snippets
+-  **Implementation**: Keyword-based search with relevance scoring
+-  **MCP Endpoints**:
   - `GET /mcp/v1/tools` - Returns tool specification
   - `POST /mcp/v1/invoke` - Executes document_retriever tool
   - `GET /health` - Health check endpoint
-- ✅ **MCP Compliance**: Full v1 protocol compliance
-- ✅ **Logging**: Comprehensive logging of all operations
+-  **MCP Compliance**: Full v1 protocol compliance
+-  **Logging**: Comprehensive logging of all operations
 
-### Component 2: A2A Orchestration ✅
+### Component 2: A2A Orchestration 
 
 **Files**: `scripts/cli.py` (298 lines), `scripts/services/orchestrator.py` (112 lines)
 
@@ -136,7 +136,7 @@ Build a modular multi-agent system where a central orchestrator (Manager Agent) 
 - Each agent has distinct system prompt and expertise
 - Return structured results with processing metrics
 
-### Component 3: Engineering & MLOps Basics ✅
+### Component 3: Engineering & MLOps Basics 
 
 **Source Code**: 
 - Python project with modular architecture
@@ -217,15 +217,6 @@ cp .env.example .env
 # Options: mock (default), groq, openai
 ```
 
-### Step 5: Verify Installation
-
-```bash
-# Run test suite
-python test_mcp.py
-
-# Expected: ✅ All tests PASSED!
-```
-
 ---
 
 ## 🚀 Quick Start Guide
@@ -262,17 +253,17 @@ OPENAI_API_KEY=your-openai-api-key
 python test_mcp.py
 
 # Result:
-# ✅ Summarizer Agent - Working
-# ✅ Entity Extractor - Working
-# ✅ Sentiment Analyzer - Working
-# ✅ Orchestrator - Parallel execution verified
-# ✅ Document Parser - PDF & TXT support
-# ✅ Total Processing Time: ~0.5s
+#  Summarizer Agent - Working
+#  Entity Extractor - Working
+#  Sentiment Analyzer - Working
+#  Orchestrator - Parallel execution verified
+#  Document Parser - PDF & TXT support
+#  Total Processing Time: ~0.5s
 ```
 
 ---
 
-## 📖 Usage Instructions
+##  Usage Instructions
 
 ### Mode 1: Interactive Terminal CLI (Recommended)
 
@@ -299,7 +290,7 @@ $ python run.py
           Multi-Agent Document Analysis System
 ============================================================
 
-📝 Enter document path: ./data/model_performance.md
+ Enter document path: ./data/model_performance.md
 ```
 
 ### Mode 2: Batch Processing
@@ -341,7 +332,7 @@ bash start.sh
 
 ---
 
-## 🌐 MCP Server Implementation
+##  MCP Server Implementation
 
 ### Specification Compliance
 
@@ -580,7 +571,7 @@ Extract key phrases reflecting the sentiment."
 
 ---
 
-## ⚙️ Configuration Management
+##  Configuration Management
 
 ### Environment Variables (`.env`)
 
@@ -654,7 +645,7 @@ logging:
 
 ### No Hardcoded Values
 
-✅ **All configurations externalized**:
+ **All configurations externalized**:
 - Database connections (N/A for KB-based)
 - API keys (via .env)
 - Server ports (via config)
@@ -722,9 +713,9 @@ logging:
 
 ---
 
-## 🏃 Running Instructions
+##  Running Instructions
 
-### Method 1: Python CLI (Recommended)
+### Method 1: Python CLI 
 
 ```bash
 # From project root
@@ -819,15 +810,15 @@ services:
 
 ### Dockerfile Features
 
-- ✅ Python 3.10-slim base image
-- ✅ Dependencies pre-installed
-- ✅ Health check endpoint
-- ✅ Production environment variables
-- ✅ Startup script entry point
+-  Python 3.10-slim base image
+-  Dependencies pre-installed
+-  Health check endpoint
+-  Production environment variables
+-  Startup script entry point
 
 ---
 
-## 💡 Design Choices & Rationale
+##  Design Choices & Rationale
 
 ### 1. Three Specialized Agents vs. Single Generalist
 
@@ -920,35 +911,19 @@ services:
 
 ---
 
-## 📊 Self-Evaluation
 
-### Requirements Coverage
-
-| Requirement | Status | Score | Evidence |
-|---|---|---|---|
-| MCP Tool Server | ✅ Complete | 10/10 | `scripts/mcp_server.py` - Full v1 compliance |
-| Manager Agent | ✅ Complete+ | 10/10 | Intent analysis + orchestration |
-| Specialist Agent | ✅ Complete+ | 10/10 | 3 parallel specialists (exceeds requirement) |
-| Knowledge Base | ✅ Complete | 10/10 | 4 markdown documents covering multiple topics |
-| README Documentation | ✅ Complete+ | 10/10 | 1000+ lines covering all aspects |
-| Configuration Management | ✅ Complete | 10/10 | .env, config.yaml, no hardcoding |
-| Source Grounding | ✅ Complete | 10/10 | Citations included in results |
-| Logging System | ✅ Complete | 10/10 | File + console logging throughout |
-| Containerization | ✅ Complete | 10/10 | Production-grade Dockerfile |
-| Error Handling | ✅ Complete+ | 10/10 | Graceful fallbacks and error recovery |
-| **TOTAL** | | **100/100** | **Full Compliance + Bonus Features** |
 
 ### Bonus Features Implemented
 
-- ✅ **State Management**: Full context history maintained
-- ✅ **Protocol Definition**: HTTP REST clearly documented
-- ✅ **Agent Specialization**: Distinct personas and system prompts
-- ✅ **Source Grounding**: Citations point to specific documents
-- ✅ **Parallel Execution**: 2-3x performance improvement
-- ✅ **Multiple LLM Providers**: Mock, Groq, OpenAI support
-- ✅ **Type Safety**: Pydantic validation throughout
-- ✅ **Production Features**: Health checks, metrics, resilience
-- ✅ **Testing**: Comprehensive test suite included
+-  **State Management**: Full context history maintained
+-  **Protocol Definition**: HTTP REST clearly documented
+-  **Agent Specialization**: Distinct personas and system prompts
+-  **Source Grounding**: Citations point to specific documents
+-  **Parallel Execution**: 2-3x performance improvement
+-  **Multiple LLM Providers**: Mock, Groq, OpenAI support
+-  **Type Safety**: Pydantic validation throughout
+-  **Production Features**: Health checks, metrics, resilience
+-  **Testing**: Comprehensive test suite included
 
 ### Code Quality Metrics
 
@@ -983,7 +958,7 @@ services:
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Issue: "Module not found" error
 
@@ -1094,28 +1069,6 @@ MCPProject/
 ```
 
 ---
-
-## 📞 Support & Contact
-
-For questions or issues:
-1. Check the Troubleshooting section
-2. Review `orchestration.log` for error details
-3. Check `.env` configuration
-4. Review inline code comments in source files
-
----
-
-## ✨ Summary
-
-**MCPProject** is a production-ready implementation of a Multi-Agent Document Analysis System that:
-
-✅ **Meets all technical requirements** of the assignment  
-✅ **Exceeds expectations** with bonus features  
-✅ **Production-ready** with error handling and monitoring  
-✅ **Well-documented** for easy understanding and extension  
-✅ **Tested** with comprehensive validation suite  
-✅ **Deployable** with Docker support  
-✅ **Flexible** with multiple configuration options  
 
 **Status**: Ready for evaluation and deployment
 
