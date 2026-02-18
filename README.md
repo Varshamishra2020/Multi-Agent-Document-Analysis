@@ -148,10 +148,6 @@ Docker containerization support
 - Topics cover multiple domains (architecture, performance, pipeline, roadmap)
 - Cross-document queries supported for comprehensive analysis
 
-**Documentation**:
-- This comprehensive README (1000+ lines)
-- Covers: setup, usage, architecture, MCP specification, design choices, self-evaluation
-
 **Dependencies**: 
 - `requirements.txt` with 11 production dependencies
 - Pinned versions for reproducibility
@@ -161,7 +157,7 @@ Docker containerization support
 
 ---
 
-## 🔧 Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 
@@ -207,7 +203,7 @@ This installs:
 - **python-multipart** (0.0.20) - Form data parsing
 - **pyyaml** (6.0.1) - YAML parsing
 
-### Step 4: Configure Environment (Optional)
+### Step 4: Configure Environment 
 
 ```bash
 # Copy template
@@ -219,7 +215,7 @@ cp .env.example .env
 
 ---
 
-## 🚀 Quick Start Guide
+##  Quick Start Guide
 
 ### 30-Second Start
 
